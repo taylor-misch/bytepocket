@@ -1,34 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>bytepocket</title>
-    
-    <link href="style.css" rel="stylesheet" type="text/css">
+  <head>
+    <meta charset="utf-8">
     <meta name="keywords" content="cryptocurrency">
     <meta name="description" content="View your cryptocurrency wallets.">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-    
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-        <a class="navbar-brand" href="#">bytepocket</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Hayden Pilsner, Dan Trewin, Taylor Misch, Kyle Johnson">
+
+    <title>bytepocket</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+      
+    <!-- You're welcome, Hayden... -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js"></script>
+    <script src="./node_modules/ripple-lib/build/ripple-0.18.0-min.js"></script>
+    <script src="./account_routes/ripple_route.js"></script>
+  </head>
+
+  <body>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">Minnehack 2018 Entry</h4>
+            <p class="text-muted">Created by Hayden Pilsner, Kyle Johnson, Dan Trewin, and Taylor Misch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">bytepocket</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">View your cryptocurrency wallets</h1>
+        <p class="lead text-muted">bytepocket allows you the easiest overview of your cryptocurrency wallets and their combined balances.</p>
+<!--
+        <p>
+          <a href="#" class="btn btn-primary">Sign up</a>
+          <a href="#" class="btn btn-secondary">Log in</a>
+        </p>
+-->
+      </div>
+    </section>
+
+    <div class="album text-muted">
+      <div class="container">
+
+        <div class="row">
+            
+            <div class="card">
+                <div id="addBitcoinWallet">
+                    <img src="images/bitcoin.png" alt="Bitcoin">
+                    <h4 class="text-black" style="text-align: center">Bitcoin (BTC)</h4>
+                </div>
+            </div>
+          
+            <div class="card">
+                <div id="addEthereumWallet">
+                    <img src="images/ethereum.png" alt="Ethereum">
+                    <h4 class="text-black" style="text-align: center">Ethereum (ETH)</h4>
+                </div>
+            </div>
+          
+            <div class="card">
+                <div id="addRippleWallet">
+                    <img src="images/ripple.png" alt="Ripple">
+                    <h4 class="text-black" style="text-align: center">Ripple (XRP)</h4>
+                </div>
+            </div>
+          
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> About</a></li>
-      </ul>
+      </div>
     </div>
-    </nav>
-    
-    <div></div>
-    
 
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <h4 class="text-white">Minnehack 2018 Entry</h4>
+        <p class="text-muted">Created by Hayden Pilsner, Kyle Johnson, Dan Trewin, and Taylor Misch.</p>
+      </div>
+    </footer>
 
-</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <script>
+      $(function () {
+        Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+      });
+    </script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+    
 </html>
