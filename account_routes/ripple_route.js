@@ -1,23 +1,15 @@
-'use strict';
-const RippleAPI = require('ripple-lib').RippleAPI;
-
-const api = new RippleAPI({
-  server: 'wss://s1.ripple.com' // Public rippled server
-});
-api.connect().then(() => {
-  /* begin custom code ------------------------------------ */
-  const myAddress = 'rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn';
-
-  console.log('getting account info for', myAddress);
-  return api.getAccountInfo(myAddress);
-
-}).then(info => {
-  console.log(info);
-  console.log('getAccountInfo done');
-
-  /* end custom code -------------------------------------- */
-}).then(() => {
-  return api.disconnect();
-}).then(() => {
-  console.log('done and disconnected.');
-}).catch(console.error);
+$(document).ready(function() {
+  console.log(ripple);
+  var api = new ripple.RippleAPI({server:'wss://s1.ripple.com/'});
+  const myAddress = 'rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn'; //connect textbox to this
+  api.connect().then(function() {
+    console.log('getting account info for', myAddress);
+    return api.getAccountInfo(myAddress);
+  }).then(function(account_info) {
+    document.body.innerHTML += "<p>Connected to rippled server!</p>" +
+    "      <div>" +
+    "        <h3>XRP Account: " + myAddress + "</h3>" +
+    "          </div><div>Balance: " + account_info.xrpBalance + //command to retrieve xrp balance from myAddress
+    "      </div>";
+  })
+})
