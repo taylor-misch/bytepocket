@@ -1,7 +1,10 @@
 .navbar {
   margin-bottom: 0;
 }
-
+.icon {
+    margin-bottom: 4px;
+    margin-right: 8px;
+}
 .navbar-brand {
     font-weight: bold;
     font-size: 2em;
