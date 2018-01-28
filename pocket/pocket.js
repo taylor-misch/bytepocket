@@ -33,9 +33,11 @@ $(document).ready(function(){
                 "Add Wallet": function() {
 
                     addBitcoinWallet( $('.walletPublicKey').val() );
+                    $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 },
                 "Cancel": function() {
+                    $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 }
             }
@@ -62,9 +64,11 @@ $(document).ready(function(){
                 "Add Wallet": function() {
 
                     addEthereumWallet( $('.walletPublicKey').val() );
+                    $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 },
                 "Cancel": function() {
+                    $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 }
             }
@@ -91,9 +95,11 @@ $(document).ready(function(){
                 "Add Wallet": function() {
 
                     addRippleWallet( $('.walletPublicKey').val() );
+                     $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 },
                 "Cancel": function() {
+                     $('.walletPublicKey').val('');
                     $(this).dialog("close");
                 }
             }
@@ -226,4 +232,5 @@ function updateTotalBal (balanceToAdd) {
 
     totalBalance += balanceToAdd;
     $('#totalBal').html("<div class='wallet'>Total: $" + (Number(totalBalance).toFixed(2)) + "</div>");
+    
 }
