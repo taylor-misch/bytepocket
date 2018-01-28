@@ -12,4 +12,8 @@ $(document).ready(function() {
     "          </div><div>Balance: " + account_info.xrpBalance + //command to retrieve xrp balance from myAddress
     "      </div>";
   })
-})
+}).then(() => {
+  return api.disconnect();
+}).then(() => {
+  console.log('done and disconnected.');
+}).catch(console.error);
