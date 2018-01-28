@@ -38,6 +38,7 @@
 
 .pic:hover{
     outline: gray solid 4px;
+    cursor: pointer;
 }
 
 h4.text-black {
