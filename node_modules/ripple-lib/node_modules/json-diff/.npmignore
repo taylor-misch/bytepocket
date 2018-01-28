@@ -1,0 +1,7 @@
+*.coffee
+/example
+/doc
+/test
+/lib-cov
+coverage.html
+yarn.lock
