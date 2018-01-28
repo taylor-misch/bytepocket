@@ -59,7 +59,7 @@
 }
 
 .pic:hover{
-    outline: gray solid 4px;
+    border: gray solid 2px;
     background-color: black;
     cursor: pointer;
 }
