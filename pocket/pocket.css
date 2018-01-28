@@ -6,6 +6,10 @@
     margin: 5%;
 }
 
+.walletPublicKey {
+    width: 100%;
+}
+
 .wallet {
     width: 90%;
     border-radius: 25px;

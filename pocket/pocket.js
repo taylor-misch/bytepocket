@@ -20,7 +20,7 @@ $(document).ready(function(){
     $("#addBitcoinWallet").click(function () {
 
         $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your Bitcoin account.</p>" +
+            "<p>Enter public address for your cryptocurrency account.</p>" +
             "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
 	        "</div>"
         );
@@ -51,7 +51,7 @@ $(document).ready(function(){
     $("#addEthereumWallet").click(function () {
 
         $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your Ethereum account.</p>" +
+            "<p>Enter public address for your cryptocurrency account.</p>" +
             "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
 	        "</div>"
         );
@@ -82,7 +82,7 @@ $(document).ready(function(){
     $("#addRippleWallet").click(function () {
 
         $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your Ripple account.</p>" +
+            "<p>Enter public address for your cryptocurrency account.</p>" +
             "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
 	        "</div>"
         );
