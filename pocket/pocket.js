@@ -118,10 +118,12 @@ $(document).ready(function(){
                 rippleRate = value.price_usd;
             }
         });
+        
+        
+        $("#addBitcoinWallet .card-text").append("<br>$" + (Number(bitcoinRate)).toFixed(2));
+        $("#addEthereumWallet .card-text").append("<br>$" + (Number(ethereumRate)).toFixed(2));
+        $("#addRippleWallet .card-text").append("<br>$" + (Number(rippleRate)).toFixed(2));
 
-        console.log(bitcoinRate);
-        console.log(ethereumRate);
-        console.log(rippleRate);
     })
 
 
@@ -149,43 +151,42 @@ function addBitcoinWallet (walletPublicKey) {
   var url = "https://api.blockcypher.com/v1/btc/main/addrs/" + $('.walletPublicKey').val() + "/balance";
   $.getJSON(url).then(function(json) {
 
-      //var obj = JSON.parse(json);
-      console.log(json.balance / 100000000);
+      var walletCoins = json.balance / 100000000;
+      
+      var walletBalance = walletCoins * bitcoinRate;
+      
+      
+      $('#wallets').append(
+
+            "<div class='wallet'><img class='wallet_icon' src='../images/bitcoin.png' alt='Bitcoin'><div>Bitcoin Wallet</div><div class='wallet_accountId'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div>USD: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
+
+      );
+
+      updateTotalBal(walletBalance);
   });
 
-    //code for getting
-    var walletCoins = 45.67;
-    var walletBalance = 67.90;
-
-    $('#wallets').append(
-
-        "<div class='wallet'><img class='wallet_icon' src='../images/bitcoin.png' alt='Bitcoin'><div>Bitcoin Wallet</div><div class='wallet_accountId'>Account: " + walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div>USD: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
-
-    );
-
-    updateTotalBal(walletBalance);
+   
 }
 
 function addEthereumWallet (walletPublicKey) {
 
   var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + $('.walletPublicKey').val() + "/balance";
   $.getJSON(url).then(function(json) {
-
-      //var obj = JSON.parse(json);
-      console.log(json.balance / 1000000000000000000);
-  });
-
-    //code for getting
-    var walletCoins = 45.67;
-    var walletBalance = 67.90;
-
-    $('#wallets').append(
+      
+      var walletCoins = json.balance / 1000000000000000000;
+      
+      var walletBalance = walletCoins * ethereumRate;
+      
+      $('#wallets').append(
 
         "<div class='wallet'><img class='wallet_icon' src='../images/ethereum.png' alt='Bitcoin'><div>Ethereum Wallet</div><div class='wallet_accountId'>Account: " + walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div>USD: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
 
     );
 
     updateTotalBal(walletBalance);
+      
+  });
+
 }
 
 function addRippleWallet (walletPublicKey) {
@@ -203,33 +204,15 @@ function addRippleWallet (walletPublicKey) {
 
         var walletCoins = account_info.xrpBalance;
 
-
-         getRippleRate().then(function(rate) {
-
-            //roundedRate = (Number(rate)).toFixed(2);
-
-             var walletBalance = walletCoins * rate;
-
-            $('#wallets').append(
-
-                "<div class='wallet'><img class='wallet_icon' src='../images/ripple.png' alt='Ripple'><div>Ripple Wallet</div><div class='wallet_accountId'>Account: " + walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div>USD: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
-            );
-
-            updateTotalBal(walletBalance);
-        });
-
-
-        /*
-        var walletBalance = 65.80;
+        var walletBalance = walletCoins * rippleRate;
 
         $('#wallets').append(
 
-            "<div class='wallet'><img class='wallet_icon' src='../images/ripple.png' alt='Ripple'><div>Ripple Wallet</div><div class='wallet_accountId'>Account: " + walletPublicKey + "</div><div>Coins: " + (Number(account_info.xrpBalance)).toFixed(2) + "</div><div>Balance: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
-
+            "<div class='wallet'><img class='wallet_icon' src='../images/ripple.png' alt='Ripple'><div>Ripple Wallet</div><div class='wallet_accountId'>Account: " + walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div>USD: $" + (Number(walletBalance)).toFixed(2) + "</div></div>"
         );
 
         updateTotalBal(walletBalance);
-        */
+       
     }).then(() => {
         return api.disconnect();
     }).then(() => {
