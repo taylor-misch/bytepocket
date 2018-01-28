@@ -1,0 +1,5 @@
+Test Addresses:
+
+Bitcoin: 1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD
+Ethereum: 71C7656EC7ab88b098defB751B7401B5f6d8976F
+Ripple: rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn
