@@ -42,7 +42,7 @@
     background-color: #F7931A;
 }
 
-@media (max-width: 1083px) {
+@media (max-width: 708px) {
     .wallet {
         display: block;
     }
