@@ -36,8 +36,12 @@
   margin-bottom: .75rem;
 }
 
-.card-text {
-  font-size: 85%;
+.pic:hover{
+    outline: gray solid 4px;
+}
+
+h4.text-black {
+    padding-top: 12px;
 }
 
 footer {
