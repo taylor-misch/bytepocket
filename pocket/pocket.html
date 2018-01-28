@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bytepocket</title>
+        
+        <!-- jQuery & Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        
+        <!-- jQuery UI -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <!-- Ripple -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js"></script>
+        <script src="./ripple/ripple-0.18.0-min.js"></script>
+        
+        <!--<script src="../account_routes/ripple_route.js"></script>-->
+        
+        <!-- Our stuff -->
+        <script src="./pocket.js"></script>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./pocket.css">
+        
+    </head>
+    <body>
+        
+        
+        
+         <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">Minnehack 2018 Entry</h4>
+            <p class="text-muted">Created by Hayden Pilsner, Kyle Johnson, Dan Trewin, and Taylor Misch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">bytepocket</a>
+    <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+      </div>
+    </div>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">View your cryptocurrency wallets</h1>
+        <p class="lead text-muted">bytepocket allows you the easiest overview of your cryptocurrency wallets and their combined balances. Just add a wallet to get started!</p>
+<!--
+        <p>
+          <a href="#" class="btn btn-primary">Sign up</a>
+          <a href="#" class="btn btn-secondary">Log in</a>
+        </p>
+-->
+      </div>
+    </section>
+
+    <div class="album text-muted">
+      <div class="container">
+
+        <div class="row">
+
+            <div class="card">
+                <div id="addBitcoinWallet">
+                    <img class="pic" src="images/bitcoin.png" alt="Bitcoin">
+                    <p class="card-text">Bitcoin (BTC)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div id="addEthereumWallet">
+                    <img class="pic" src="images/ethereum.png" alt="Ethereum">
+                    <p class="card-text">Ethereum (ETH)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div id="addRippleWallet">
+                    <img class="pic" src="images/ripple.png" alt="Ripple">
+                    <p class="card-text">Ripple (XRP)</p>
+                </div>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+      
+    <div id="wallets"></div>
+    <div id="totalBal"></div>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <h4 class="text-white">Minnehack 2018 Entry</h4>
+        <p class="text-muted">Created by Hayden Pilsner, Kyle Johnson, Dan Trewin, and Taylor Misch.</p>
+      </div>
+    </footer>
+        
+        
+        
+        <div id ="content">
+            <!--
+            <div id="addBitcoinWallet" class="ui-button ui-widget ui-corner-all">Add Bitcoin Wallet</div>
+            <div id="addEthereumWallet" class="ui-button ui-widget ui-corner-all">Add Ethereum Wallet</div>
+            <div id="addRippleWallet" class="ui-button ui-widget ui-corner-all">Add Ripple Wallet</div>
+            -->
+            <div id="wallets"></div>
+            <div id="totalBal"></div>
+            
+           
+        </div>
+        
+    </body>
+</html>
