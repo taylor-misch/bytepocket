@@ -1,36 +1,44 @@
-
-
 .hidden {
     display: none;
 }
+
 #content {
-    
-    
     margin: 5%;
 }
 
 .wallet {
     width: 90%;
-    border: 3px solid black;
     border-radius: 5px;
     font-size: 1.5rem;
+    text-align: center;
     margin: 2%;
     padding: 1%;
     display: flex;
     justify-content: space-around;
+    background-color: #f7f7f7;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .wallet_accountId {
     font-size: 1.1rem;
 }
+
 .wallet_icon {
     width: 89px;
     height: 70px;
 }
 
-
-
 #totalBal .wallet {
+    text-align: center;
     font-size: 1.5rem;
-    background-color: greenyellow;
+    font-weight: 500;
+    color: white;
+    background-color: #F7931A;
+}
+
+@media (max-width: 1083px) {
+    .wallet {
+        display: block;
+    }
 }

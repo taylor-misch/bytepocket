@@ -25,7 +25,7 @@
 
 .album {
   margin-top: 0rem;
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
 }
 
 .card {
@@ -66,7 +66,7 @@ footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: #343a40;
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: -6rem;
 }
 
