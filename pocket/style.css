@@ -58,7 +58,7 @@
 }
 
 .pic:hover{
-   /* outline: gray solid 4px;*/
+    outline: gray solid 4px;
     background-color: black;
     cursor: pointer;
 }
