@@ -2,6 +2,10 @@
   margin-bottom: 0;
 }
 
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2em;
+}
 .jumbotron {
   margin-bottom: -1rem;
   background-color: #fff;
