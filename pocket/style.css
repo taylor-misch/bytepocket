@@ -51,10 +51,12 @@
     max-width:100%;
     max-height:100%;
     vertical-align: middle;
+    border-radius: 25px;
 }
 
 .pic:hover{
-    outline: gray solid 4px;
+   /* outline: gray solid 4px;*/
+    background-color: black;
     cursor: pointer;
 }
 
