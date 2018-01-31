@@ -1,4 +1,4 @@
-Test Addresses:
+Public Addresses:
 
 Bitcoin:    1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD
 
@@ -6,9 +6,7 @@ Bitcoin:    1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD
 
             133b9geEAG6zhYm5K4G1fho8Stj1XHVJfA
 
-Ethereum:   0x171C7656EC7ab88b098defB751B7401B5f6d8976F
-
-            0x12bfA9001Ce59002eF21eCd809D110530e5262C5
+Ethereum:   0x12bfA9001Ce59002eF21eCd809D110530e5262C5
 
             0xdDF97744bb24c64435380AEc630BE1E18371148b
 
