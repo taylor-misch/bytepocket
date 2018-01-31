@@ -29,23 +29,18 @@
 
 
     <div class="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#">
             <span><img class="icon" src="./images/logo.png" width="59" height="40"/></span>
             bytepocket
         </a>
-      </div>
     </div>
+    
 
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Your Crypto. One Place.</h1>
         <p class="lead text-muted">bytepocket allows you the easiest overview of your cryptocurrency wallets and their combined balances. Just add a wallet to get started!</p>
-<!--
-        <p>
-          <a href="#" class="btn btn-primary">Sign up</a>
-          <a href="#" class="btn btn-secondary">Log in</a>
-        </p>
--->
+
       </div>
     </section>
 
@@ -82,6 +77,11 @@
 
     <div id="wallets"></div>
     <div id="totalBal"></div>
+    
+    <div id='dialog' class='hidden' title='Add Account'>
+        <p>Enter the public address for your cryptocurrency account.</p>
+        <input type='text' class='walletPublicKey' name='walletPublicKey'>
+    </div>
 
     <footer class="text-muted">
       <div class="container">
@@ -96,18 +96,6 @@
     </footer>
 
 
-
-        <div id ="content">
-            <!--
-            <div id="addBitcoinWallet" class="ui-button ui-widget ui-corner-all">Add Bitcoin Wallet</div>
-            <div id="addEthereumWallet" class="ui-button ui-widget ui-corner-all">Add Ethereum Wallet</div>
-            <div id="addRippleWallet" class="ui-button ui-widget ui-corner-all">Add Ripple Wallet</div>
-            -->
-            <div id="wallets"></div>
-            <div id="totalBal"></div>
-
-
-        </div>
 
     </body>
 </html>
