@@ -199,7 +199,7 @@ function addBitcoinWallet (walletPublicKey) {
 
       $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='../images/bitcoin.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/bitcoin.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
       );
       
@@ -232,7 +232,7 @@ function addEthereumWallet (walletPublicKey) {
       
       $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='../images/ethereum.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ethereum.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
       );
       
@@ -272,7 +272,7 @@ function addRippleWallet (walletPublicKey) {
         
         $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='../images/ripple.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ripple.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
         );
       
