@@ -15,13 +15,7 @@ $(document).ready(function(){
     //////////////////////////////////
 
     $("#addBitcoinWallet").click(function () {
-/*
-        $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your cryptocurrency account.</p>" +
-            "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
-	        "</div>"
-        );
-*/
+
         $("#dialog").dialog({
             modal: true,
             width: 600,
@@ -46,13 +40,7 @@ $(document).ready(function(){
     //////////////////////////////////
 
     $("#addEthereumWallet").click(function () {
-/*
-        $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your cryptocurrency account.</p>" +
-            "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
-	        "</div>"
-        );
-*/
+
         $("#dialog").dialog({
             modal: true,
             width: 600,
@@ -77,13 +65,7 @@ $(document).ready(function(){
     //////////////////////////////////
 
     $("#addRippleWallet").click(function () {
-/*
-        $("body").append("<div id='dialog' class='hidden' title='Add Wallet'>" +
-            "<p>Enter public address for your cryptocurrency account.</p>" +
-            "<input type='text' class='walletPublicKey' name='walletPublicKey'>" +
-	        "</div>"
-        );
-*/
+
         $("#dialog").dialog({
             modal: true,
             width: 600,
@@ -131,42 +113,46 @@ $(document).ready(function(){
 
     })
 
+    
+    //Clear saved wallets
+    //localStorage.clear();
+    
     /*
-    localStorage.clear();
-
+    //Example saved wallets
+    localStorage.setItem("numSavedWallets", 2);
     
+    localStorage.setItem("wallet0_type", "BTC");
+    localStorage.setItem("wallet0_account", "1NDWqdmZczkvvfKRz3z9mQwyi46TooEp5A");
     
-    if (localStorage.getItem('wallets') !== null) {
-        wallets = localStorage.getItem('wallets');
-        alert('wallets exists');
-    }
-    if (localStorage.getItem('currentWalletId') !== 'null') {
-        currentWalletId = localStorage.getItem('currentWalletId');
-        alert("currentWalletId exists");
-    }
-    
-    alert(wallets);
-    alert(currentWalletId);
+    localStorage.setItem("wallet1_type", "XRC");
+    localStorage.setItem("wallet1_account", "rEaaL2rhur9XQhTizUo46Eq2WZxkkpRKiF");
     */
-    /*
-    wallets.forEach(function (wallet) {
-
-        if (wallet.type === 'bitcoin') {
-            addBitcoinWallet(wallet.account);
-        }
-        else if (wallet.type === 'ethereum') {
-            addEthereumWallet(wallet.account);
-        }
-        else if (wallet.type === 'ripple') {
-            addRippleWallet(wallet.account);
-        }
     
-    });*/
-    
-        
-    //clear cookies    
-    //document.cookie = "wallets=" + "clearing" + "; expires=Tue, 16 Jan 2018 12:00:00 UTC";
-    //document.cookie = "currentWalletId=" + "clearing" + "; expires=Tue, 16 Jan 2018 12:00:00 UTC";
+    var numSavedWallets = localStorage.getItem("numSavedWallets");
+   
+    if (numSavedWallets !== null) {
+        //alert("Saved Wallets: " + numSavedWallets)
+        for (var i = 0; i < numSavedWallets; i++) {
+            
+            var walletType = localStorage.getItem("wallet" + i + "_type");
+            var walletAccount = localStorage.getItem("wallet" + i + "_account");
+            //alert(walletType)
+            //alert(walletAccount)
+            
+            if (walletType === "DELETED") {
+                
+            }
+            else if (walletType === "BTC") {
+                addBitcoinWallet(walletAccount);
+            }
+            else if (walletType === "ETH") {
+                addEthereumWallet(walletAccount);
+            }
+            else if (walletType === "XRP") {
+                addRippleWallet(walletAccount);
+            }
+        }
+    }
 
 });
 
@@ -189,7 +175,7 @@ function getExchangeRates () {
 
 function addBitcoinWallet (walletPublicKey) {
 
-  var url = "https://api.blockcypher.com/v1/btc/main/addrs/" + $('.walletPublicKey').val() + "/balance";
+  var url = "https://api.blockcypher.com/v1/btc/main/addrs/" + walletPublicKey + "/balance";
   $.getJSON(url).then(function(json) {
 
       var walletCoins = json.balance / 100000000;
@@ -199,15 +185,20 @@ function addBitcoinWallet (walletPublicKey) {
 
       $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/bitcoin.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/bitcoin.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Remove'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
       );
       
     
       wallets.push({id: currentWalletId, type: 'bitcoin', account: walletPublicKey, balance: walletBalance});
+      
+      localStorage.setItem("wallet" + currentWalletId + "_type", "BTC");
+      localStorage.setItem("wallet" + currentWalletId + "_account", walletPublicKey);
+      
       currentWalletId ++;
-      //localStorage.setItem("wallets", wallets);
-      //localStorage.setItem("currentWalletId", currentWalletId);
+      localStorage.setItem("numSavedWallets", currentWalletId);
+    
+    
 
       
       setClickFunctionForWalletDelete();
@@ -220,7 +211,7 @@ function addBitcoinWallet (walletPublicKey) {
 
 function addEthereumWallet (walletPublicKey) {
 
-  var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + $('.walletPublicKey').val() + "/balance";
+  var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + walletPublicKey + "/balance";
   $.getJSON(url).then(function(json) {
 
       var walletCoins = json.balance / 1000000000000000000;
@@ -232,19 +223,22 @@ function addEthereumWallet (walletPublicKey) {
       
       $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ethereum.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ethereum.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Remove'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
       );
       
     
       wallets.push({id: currentWalletId, type: 'ethereum', account: walletPublicKey, balance: walletBalance});
+      
+      localStorage.setItem("wallet" + currentWalletId + "_type", "ETH");
+      localStorage.setItem("wallet" + currentWalletId + "_account", walletPublicKey);
+      
       currentWalletId ++;
-      //localStorage.setItem("wallets", wallets);
-      //localStorage.setItem("currentWalletId", currentWalletId);
+      localStorage.setItem("numSavedWallets", currentWalletId);
 
       
-      setClickFunctionForWalletDelete();
       
+      setClickFunctionForWalletDelete();
       
       refreshTotalBal();
               
@@ -272,22 +266,24 @@ function addRippleWallet (walletPublicKey) {
         
         $('#wallets').append(
 
-            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ripple.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Close'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
+            "<div class='wallet' data-id=" + currentWalletId + " data-account=" + walletPublicKey + " data-balance=" + walletBalance + "><img class='wallet_icon' src='./images/ripple.png' alt='Bitcoin'><div class='wallet_account'>Account: " +           walletPublicKey + "</div><div>Coins: " + (Number(walletCoins)).toFixed(2) + "</div><div class='wallet_balance'>USD: $" + (Number(walletBalance)).toFixed(2) + "</div><button type='button' class='ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close removeWalletButton' title='Remove'><span class='ui-button-icon ui-icon ui-icon-closethick'></span><span class='ui-button-icon-space'> </span>Close</button></div>"
 
         );
       
     
         wallets.push({id: currentWalletId, type: 'ripple', account: walletPublicKey, balance: walletBalance});
+        
+        localStorage.setItem("wallet" + currentWalletId + "_type", "XRP");
+        localStorage.setItem("wallet" + currentWalletId + "_account", walletPublicKey);
+      
         currentWalletId ++;
-        //localStorage.setItem("wallets", wallets);
-        //localStorage.setItem("currentWalletId", currentWalletId);
+        localStorage.setItem("numSavedWallets", currentWalletId);
 
       
+        
         setClickFunctionForWalletDelete();
       
-      
-        refreshTotalBal();
-        
+        refreshTotalBal();  
         
     }).then(() => {
         return api.disconnect();
@@ -314,6 +310,9 @@ function setClickFunctionForWalletDelete() {
           }
         })
 
+        
+        localStorage.setItem("wallet" + id + "_type", "DELETED");
+        
         $(this).parent().remove();
         refreshTotalBal();
     });
@@ -330,26 +329,4 @@ function refreshTotalBal () {
 
     $('#totalBal').html("<div class='wallet'>Total: $" + (Number(totalBal).toFixed(2)) + "</div>");
     
-}
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
 }
