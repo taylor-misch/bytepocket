@@ -1,5 +1,5 @@
 # bytepocket
 Cryptocurrency Account Balance Checker
 
-link: [https://tmisch.github.io/bytepocket/](https://tmisch.github.io/bytepocket/)
+link: [https://taylor-misch.github.io/bytepocket/](https://tmisch.github.io/bytepocket/)
 
